@@ -60,12 +60,13 @@ variable "deploy_account" {
 }
 
 variable "deploy_account_pwd" {
+  default = ""
   type = string
   description = "Deployment account password"
 }
 
 variable "bridge_iface" {
-  default = "br0"
+  default = "virbr0"
   type = string
   description = "Host bridge interface name"
 }
