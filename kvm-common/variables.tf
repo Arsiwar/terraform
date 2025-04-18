@@ -1,5 +1,5 @@
 variable "pool_path" {
-  default = "/mnt/kvm/disks"
+  default = "/mnt/kvm/disks_newdisks"
   type = string
   description = "Virtual disks path"
 }
@@ -9,3 +9,4 @@ variable "image" {
   type = string
   description = "Source qcow2 base image URL"
 }
+

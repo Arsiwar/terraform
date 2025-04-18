@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.11.2",
-  "serial": 14,
+  "serial": 12,
   "lineage": "d74f3d86-50ae-a8cf-0d3a-e5cc09de5c51",
   "outputs": {},
   "resources": [
@@ -74,6 +74,111 @@
             "data.template_file.network_config",
             "data.template_file.user_data"
           ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "libvirt_domain",
+      "name": "domain",
+      "provider": "provider[\"registry.terraform.io/dmacvicar/libvirt\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arch": "x86_64",
+            "autostart": true,
+            "boot_device": [],
+            "cloudinit": "/mnt/kvm/disks/worker-commoninit.iso;b9de1912-617b-499d-a344-d15cd4d79063",
+            "cmdline": null,
+            "console": [],
+            "coreos_ignition": null,
+            "cpu": [
+              {
+                "mode": "custom"
+              }
+            ],
+            "description": "",
+            "disk": [
+              {
+                "block_device": "",
+                "file": "",
+                "scsi": false,
+                "url": "",
+                "volume_id": "/mnt/kvm/disks/worker.qcow2",
+                "wwn": ""
+              }
+            ],
+            "emulator": "/usr/libexec/qemu-kvm",
+            "filesystem": [],
+            "firmware": null,
+            "fw_cfg_name": "opt/com.coreos/config",
+            "graphics": [],
+            "id": "ee044af0-773f-491e-ac56-d4b9b8533a9e",
+            "initrd": "",
+            "kernel": "",
+            "machine": "pc",
+            "memory": 1024,
+            "metadata": null,
+            "name": "worker",
+            "network_interface": [
+              {
+                "addresses": [],
+                "bridge": "virbr0",
+                "hostname": "",
+                "mac": "52:54:00:2A:78:40",
+                "macvtap": "",
+                "network_id": "",
+                "network_name": "",
+                "passthrough": "",
+                "private": "",
+                "vepa": "",
+                "wait_for_lease": false
+              }
+            ],
+            "nvram": null,
+            "qemu_agent": false,
+            "running": true,
+            "timeouts": null,
+            "tpm": [],
+            "type": "kvm",
+            "vcpu": 1,
+            "video": [],
+            "xml": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozMDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "data.template_file.network_config",
+            "data.template_file.user_data",
+            "libvirt_cloudinit_disk.commoninit",
+            "libvirt_volume.volume"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "libvirt_volume",
+      "name": "volume",
+      "provider": "provider[\"registry.terraform.io/dmacvicar/libvirt\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "base_volume_id": null,
+            "base_volume_name": "base.qcow2",
+            "base_volume_pool": null,
+            "format": "qcow2",
+            "id": "/mnt/kvm/disks/worker.qcow2",
+            "name": "worker.qcow2",
+            "pool": "disks",
+            "size": 20401094656,
+            "source": null,
+            "xml": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
         }
       ]
     }

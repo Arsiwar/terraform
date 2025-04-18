@@ -8,7 +8,7 @@ terraform {
 
 provider "libvirt" {
  
-  uri = "qemu+ssh://${var.deploy_account}@${var.host_server}/system"
+  uri = "qemu:///system"
   
 }
 

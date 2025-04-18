@@ -8,14 +8,14 @@ terraform {
 
 resource "libvirt_volume" "volume" {
   name = "${var.hostname}.qcow2"
-  pool = "disks"
+  pool = "disks_newdisks"
   base_volume_name = "base.qcow2"
   size = var.size
 }
 
 resource "libvirt_cloudinit_disk" "commoninit" {
   name = "${var.hostname}-commoninit.iso"
-  pool = "disks"
+  pool = "disks_newdisks"
   user_data = data.template_file.user_data.rendered
   network_config = data.template_file.network_config.rendered
 }
